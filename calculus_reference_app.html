@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Reference • AI Focus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .section {
+            scroll-margin-top: 80px;
+        }
+
+        .formula {
+            background-color: #f8fafc;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .nav-active {
+            background-color: #6366f1;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .card {
+            transition: all 0.2s ease;
+        }
+
+        .highlight {
+            background-color: #fef08c;
+            padding: 1px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
+                    <span class="text-white font-bold text-2xl tracking-tighter">C</span>
+                </div>
+                <div>
+                    <h1 class="font-display text-2xl font-semibold tracking-tight">Calculus Reference</h1>
+                    <p class="text-[10px] text-slate-500 -mt-1 tracking-[0.5px]">FOCUSED ON AI &amp; NEURAL NETWORKS</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-4 pt-6 pb-16">
+        
+        <!-- Search -->
+        <div class="mb-8 max-w-md">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search topics (chain rule, gradient, derivative...)" 
+                class="w-full px-4 py-3 bg-white border border-slate-300 rounded-2xl text-sm focus:outline-none focus:border-indigo-400 shadow-sm"
+                onkeyup="filterContent()"
+            >
+        </div>
+
+        <!-- Quick Reference Cards -->
+        <div class="mb-10">
+            <h2 class="font-semibold text-lg mb-3 px-1 tracking-tight">Quick Reference</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 card">
+                    <div class="text-[10px] text-slate-500 tracking-widest mb-1">POWER RULE</div>
+                    <div class="font-medium text-sm">\( \frac{d}{dx} x^n = n x^{n-1} \)</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 card">
+                    <div class="text-[10px] text-slate-500 tracking-widest mb-1">CHAIN RULE</div>
+                    <div class="font-medium text-sm">\( \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x) \)</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 card">
+                    <div class="text-[10px] text-slate-500 tracking-widest mb-1">GRADIENT</div>
+                    <div class="font-medium text-sm">\( \nabla f = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right) \)</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 card">
+                    <div class="text-[10px] text-slate-500 tracking-widest mb-1">PRODUCT RULE</div>
+                    <div class="font-medium text-sm">\( (uv)' = u'v + uv' \)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. Limits -->
+        <div id="limits" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1">1. Limits &amp; Continuity</h2>
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 text-sm">
+                <p class="mb-4">A limit describes the value a function approaches as the input gets closer to a specific value.</p>
+                
+                <div class="formula">
+                    <strong>Definition:</strong><br>
+                    \( \lim_{x \to a} f(x) = L \)
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Derivatives -->
+        <div id="derivatives" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1">2. Derivatives</h2>
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 text-sm">
+                <p class="mb-4">The derivative measures the instantaneous rate of change of a function.</p>
+                
+                <div class="formula mb-4">
+                    <strong>Definition:</strong><br>
+                    \( f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} \)
+                </div>
+
+                <h4 class="font-semibold mb-2 mt-5">Basic Rules</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="bg-slate-50 p-3 rounded-2xl">Power Rule: \( \frac{d}{dx} x^n = n x^{n-1} \)</div>
+                    <div class="bg-slate-50 p-3 rounded-2xl">Constant Multiple: \( \frac{d}{dx} [c \cdot f(x)] = c \cdot f'(x) \)</div>
+                    <div class="bg-slate-50 p-3 rounded-2xl">Sum / Difference: \( (f \pm g)' = f' \pm g' \)</div>
+                    <div class="bg-slate-50 p-3 rounded-2xl">Exponential: \( \frac{d}{dx} e^x = e^x \)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Chain Rule (Emphasized) -->
+        <div id="chain-rule" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1 flex items-center gap-x-2">
+                3. Chain Rule 
+                <span class="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full font-medium tracking-wider">CRITICAL FOR AI</span>
+            </h2>
+            <div class="bg-white rounded-3xl border border-indigo-200 p-6 text-sm">
+                <p class="mb-4">The Chain Rule is essential for understanding how neural networks learn through backpropagation.</p>
+                
+                <div class="formula mb-4">
+                    <strong>Chain Rule:</strong><br>
+                    \( \frac{d}{dx} f(g(x)) = f'(g(x)) \cdot g'(x) \)
+                </div>
+
+                <p class="text-xs text-slate-600">Neural networks are made of stacked functions. The Chain Rule lets us calculate how a small change in the final output affects the weights in earlier layers.</p>
+            </div>
+        </div>
+
+        <!-- 4. Applications -->
+        <div id="applications" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1">4. Applications of Derivatives</h2>
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <strong class="block mb-1">Optimization</strong>
+                        <span class="text-slate-600 text-sm">Finding maximum and minimum values. This is the foundation of how neural networks minimize error during training.</span>
+                    </div>
+                    <div>
+                        <strong class="block mb-1">Related Rates</strong>
+                        <span class="text-slate-600 text-sm">How one quantity changes when another quantity changes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Integrals -->
+        <div id="integrals" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1">5. Integrals (Introduction)</h2>
+            <div class="bg-white rounded-3xl border border-slate-200 p-6 text-sm">
+                <p class="mb-3">Integration is the reverse of differentiation. It calculates accumulated change and areas under curves.</p>
+                <div class="formula">
+                    Power Rule: \( \int x^n \, dx = \frac{x^{n+1}}{n+1} + C \) (for \( n \neq -1 \))
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Gradients (Emphasized) -->
+        <div id="gradients" class="section mb-10">
+            <h2 class="font-semibold text-xl mb-3 px-1 flex items-center gap-x-2">
+                6. Gradients &amp; Optimization 
+                <span class="text-xs px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full font-medium tracking-wider">ESSENTIAL FOR AI</span>
+            </h2>
+            <div class="bg-white rounded-3xl border border-indigo-200 p-6 text-sm">
+                <p class="mb-4">In machine learning we work with functions that have thousands of variables (weights). The <strong>gradient</strong> points in the direction of steepest increase.</p>
+                
+                <div class="formula mb-4">
+                    <strong>Gradient:</strong><br>
+                    \( \nabla f = \left( \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots , \frac{\partial f}{\partial x_n} \right) \)
+                </div>
+
+                <h4 class="font-semibold mt-4 mb-2">Gradient Descent (How Neural Networks Learn)</h4>
+                <p class="mb-2">To minimize loss, we move in the <strong>opposite direction</strong> of the gradient:</p>
+                <div class="formula">
+                    New weights = Old weights − (learning rate × gradient)
+                </div>
+                
+                <p class="mt-3 text-xs text-slate-600">This process is repeated thousands of times during training. This is why understanding gradients and the chain rule is so important for understanding how AI actually works.</p>
+            </div>
+        </div>
+
+        <div class="text-center text-xs text-slate-400 mt-10">
+            Built for understanding the math behind modern AI
+        </div>
+    </div>
+
+    <script>
+        function filterContent() {
+            const term = document.getElementById('searchInput').value.toLowerCase();
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                section.style.display = content.includes(term) ? '' : 'none';
+            });
+        }
+
+        // Keyboard shortcut: press "/" to focus search
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "/" && document.activeElement.tagName === "BODY") {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+        });
+
+        // Initialize KaTeX rendering
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof renderMathInElement === "function") {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "\\(", right: "\\)", display: false}
+                    ]
+                });
+            }
+        });
+    </script>
+</body>
+</html>
